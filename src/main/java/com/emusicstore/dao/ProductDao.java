@@ -7,8 +7,14 @@ import com.emusicstore.model.Product;
 public interface ProductDao {
 	
 	void addProduct(Product product);
-	List<Product> getAllProducts();
-	void deleteProduct(Integer id);
-	Product getProductById(Integer id);
+
+    void editProduct(Product product);
+
+    Product getProductById(Integer id);
+
+    List<Product> getAllProducts();
+
+    void deleteProduct(Integer id);
+	
 
 }
