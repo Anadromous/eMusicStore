@@ -1,6 +1,7 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 
+
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
@@ -9,7 +10,8 @@
             <p class="lead">Please update the product information here:</p>
         </div>
 
-        <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post" commandName="product" enctype="multipart/form-data">
+        <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post"
+                   commandName="product" enctype="multipart/form-data">
         <form:hidden path="productId" value="${product.productId}" />
 
         <div class="form-group">

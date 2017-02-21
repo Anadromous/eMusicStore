@@ -6,7 +6,7 @@ import com.emusicstore.model.Product;
 
 public interface ProductDao {
 	
-	void addProduct(Product product);
+    void addProduct(Product product);
 
     void editProduct(Product product);
 

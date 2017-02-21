@@ -1,4 +1,4 @@
-s<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
@@ -11,7 +11,7 @@ s<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
             <p class="lead">Checkout all the awesome products available now!</p>
         </div>
 
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover" style="display: inline-table" >
             <thead>
             <tr class="bg-success">
                 <th>Photo Thumb</th>
@@ -24,14 +24,12 @@ s<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
             </thead>
             <c:forEach items="${products}" var="product">
                 <tr>
-                    <td><img src="<c:url value="/resources/images/${product.productId}.png" /> " alt="image"
-                             style="width:100%"/></td>
+                    <td><img src="<c:url value="/resources/images/${product.productId}.png"/> " alt="image" style="width:100%"/></td>
                     <td>${product.productName}</td>
                     <td>${product.productCategory}</td>
                     <td>${product.productCondition}</td>
                     <td>${product.productPrice} USD</td>
-                    <td><a href="<spring:url value="/productList/viewProduct/${product.productId}" />"
-                    ><span class="glyphicon glyphicon-info-sign"></span></a></td>
+                    <td><a href="<spring:url value="/productList/viewProduct/${product.productId}"/>"><span class="glyphicon glyphicon-info-sign"></span></a></td>
                 </tr>
             </c:forEach>
         </table>

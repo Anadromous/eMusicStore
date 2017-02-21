@@ -6,7 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Transient;
+import javax.validation.constraints.Min;
 
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity()
@@ -32,48 +34,59 @@ public class Product {
 	/**
 	 * @return the productName
 	 */
+	@Column(name="product_name")
+	@NotEmpty (message = "The product name must not be null.")
 	public String getProductName() {
 		return productName;
 	}
 	/**
 	 * @return the productCategory
 	 */
+	@Column(name="category")
 	public String getProductCategory() {
 		return productCategory;
 	}
 	/**
 	 * @return the productDescription
 	 */
+	@Column(name="description")
 	public String getProductDescription() {
 		return productDescription;
 	}
 	/**
 	 * @return the productPrice
 	 */
+	@Column(name="price")
+	@Min(value = 0, message = "The product price must no be less then zero.")
 	public Double getProductPrice() {
 		return productPrice;
 	}
 	/**
 	 * @return the productCondition
 	 */
+	@Column(name="product_condition")
 	public String getProductCondition() {
 		return productCondition;
 	}
 	/**
 	 * @return the productStatus
 	 */
+	@Column(name="status")
 	public String getProductStatus() {
 		return productStatus;
 	}
 	/**
 	 * @return the unitInStock
 	 */
+	@Column(name="in_stock")
+	@Min(value = 0, message = "The product unit must not be less than zero.")
 	public int getUnitInStock() {
 		return unitInStock;
 	}
 	/**
 	 * @return the productManufacturer
 	 */
+	@Column(name="manufacturer")
 	public String getProductManufacturer() {
 		return productManufacturer;
 	}
@@ -137,5 +150,6 @@ public class Product {
 	public void setProductImage(MultipartFile productImage) {
 		this.productImage = productImage;
 	}
+	
 	
 }
