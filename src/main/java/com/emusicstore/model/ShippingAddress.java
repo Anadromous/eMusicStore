@@ -3,6 +3,7 @@ package com.emusicstore.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import java.io.Serializable;
 
@@ -25,6 +26,7 @@ public class ShippingAddress implements Serializable{
     private String zipCode;
 
     @OneToOne
+    @JoinColumn(name = "customerId")
     private Customer customer;
 
     public int getShippingAddressId() {

@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import java.io.Serializable;
 
@@ -18,7 +19,6 @@ public class BillingAddress implements Serializable{
 
     @Id
     @GeneratedValue
-    @Column(name="billing_address_id")
     private int billingAddressId;
     @Column(name="street_name")
     private String streetName;
@@ -34,6 +34,7 @@ public class BillingAddress implements Serializable{
     private String zipCode;
 
     @OneToOne
+    @JoinColumn(name = "customerId")
     private Customer customer;
 
     public int getBillingAddressId() {

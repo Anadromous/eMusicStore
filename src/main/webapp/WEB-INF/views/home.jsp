@@ -19,11 +19,9 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Welcome to Le's Music Store</h1>
-
-                    <p>Here you can browse and buy Instruments, Records and music related Accessories. Order Now for
+                    <h1>Welcome to Rapid River Exchange</h1>
+                    <p>Here you can browse and buy Rafts, Gear and rafting related Accessories. Order Now for
                         Your Amazing New Kit!</p>
-
                 </div>
             </div>
         </div>
@@ -34,9 +32,10 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Facts You Should Know About Music</h1>
+                    <h1>Facts You Should Know About Rafting</h1>
 
-                    <p>Music brings joy, to all of our hearts, It's one of those, emotional arts.</p>
+                    <p>Fighting against the current of life won&#8217t get you very far. Go with the flow!</p>
+                    <!-- Going with the flow is one thing, being at the mercy of the river is another -->
 
                 </div>
             </div>
@@ -48,9 +47,9 @@
 
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>It's A Jazz Affair</h1>
+                    <h1>It's A River Affair</h1>
 
-                    <p>Through ups and downs, Somehow I manage to survive in life.</p>
+                    <p>Through rapids and rowing, Somehow we manage to survive in life.</p>
 
                 </div>
             </div>

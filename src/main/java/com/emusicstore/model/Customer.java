@@ -17,7 +17,6 @@ public class Customer implements Serializable{
 
     @Id
     @GeneratedValue
-    @Column(name="customer_id")
     private int customerId;
     @NotEmpty (message = "The customer name must not be null.")
     @Column(name="customer_name")

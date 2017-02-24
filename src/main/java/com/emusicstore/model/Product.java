@@ -22,9 +22,7 @@ public class Product implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="product_id")
     private int productId;
-
     @NotEmpty (message = "The product name must not be null.")
     @Column(name="product_name")
     private String productName;
@@ -35,7 +33,7 @@ public class Product implements Serializable{
     @Min(value = 0, message = "The product price must no be less then zero.")
     @Column(name="product_price")
     private double productPrice;
-    @Column(name="condition")
+    @Column(name="product_condition")
     private String productCondition;
     @Column(name="status")
     private String productStatus;

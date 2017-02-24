@@ -15,7 +15,6 @@ public class CartItem implements Serializable{
 
     @Id
     @GeneratedValue
-    @Column(name="cart_item_id")
     private int cartItemId;
     @ManyToOne
     @JoinColumn(name = "cartId")
