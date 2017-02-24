@@ -12,7 +12,6 @@ import java.io.Serializable;
 @Entity
 public class ShippingAddress implements Serializable{
 
-
     private static final long serialVersionUID = 989191150380037359L;
 
     @Id

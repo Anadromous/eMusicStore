@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by Le on 1/11/2016.
+ * Created by pchapman on 1/11/2016.
  */
 
 @Entity
