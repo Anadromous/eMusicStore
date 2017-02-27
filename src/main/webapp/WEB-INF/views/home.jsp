@@ -1,7 +1,4 @@
 <%@include file="/WEB-INF/views/template/header.jsp" %>
-
-
-
 <!-- Carousel
 ================================================== -->
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

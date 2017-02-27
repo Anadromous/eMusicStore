@@ -1,23 +1,34 @@
 package com.emusicstore.model;
 
+import java.util.Collection;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * Created by Le on 1/24/2016.
  */
 
 @Entity
-public class Users{
+public class Users implements UserDetails{
 
-    @Id
-    @GeneratedValue
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int usersId;
     private String username;
     private String password;
-    private boolean enabled;
     private int customerId;
+	@Column(name = "ROLE")
+	private String role;
 
     public int getUsersId() {
         return usersId;
@@ -43,14 +54,6 @@ public class Users{
         this.password = password;
     }
 
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
     public int getCustomerId() {
         return customerId;
     }
@@ -58,4 +61,37 @@ public class Users{
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
+    
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+    
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return AuthorityUtils.createAuthorityList(this.role);
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 }

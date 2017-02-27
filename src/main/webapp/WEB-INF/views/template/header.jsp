@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: Le
@@ -15,9 +16,9 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <security:csrfMetaTags/>
     <link rel="icon" href="../../favicon.ico">
-
-    <title>My Music Store</title>
+    <title>My Rafting Store</title>
 
     <!-- Angular JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js" > </script>
@@ -61,13 +62,17 @@
                     <ul class="nav navbar-nav pull-right">
                         <c:if test="${pageContext.request.userPrincipal.name != null}">
                             <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
-                            <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
-                            <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
+                            <li><a href="<c:url value="/j_spring_security_logout"/>">Logout</a></li>
+                            <%-- <c:if test="${pageContext.request.userPrincipal.name != 'admin'}"> --%>
+                            <security:authorize access="hasRole('USER')">
                                 <li><a href="<c:url value="/customer/cart" />">Cart</a></li>
-                            </c:if>
-                            <c:if test="${pageContext.request.userPrincipal.name  == 'admin'}">
+                            <%-- </c:if> --%>
+                            </security:authorize>
+                            <%-- <c:if test="${pageContext.request.userPrincipal.name  == 'admin'}"> --%>
+                            <security:authorize access="hasRole('ADMIN')">
                                 <li><a href="<c:url value="/admin" />">Admin</a></li>
-                            </c:if>
+                            <%-- </c:if> --%>
+                            </security:authorize>
                         </c:if>
                         <c:if test="${pageContext.request.userPrincipal.name  == null}">
                         <li><a href="<c:url value="/login/" />">Login</a></li>

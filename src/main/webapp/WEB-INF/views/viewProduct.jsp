@@ -35,10 +35,11 @@
 
                     <c:set var="role" scope="page" value="${param.role}" />
                     <c:set var="url" scope="page" value="/product/productList" />
-                    <c:if test="${role='admin'}">
+                    <%-- <c:if test="${role='admin'}"> --%>
+                    <security:authorize access="hasRole('ROLE_USER')">
                         <c:set var="url" scope="page" value="/admin/productInventory" />
-                    </c:if>
-
+                    <%-- </c:if> --%>
+					</security:authorize>
                     <p ng-controller="cartCtrl">
                         <a href="<c:url value="${url}" />" class="btn btn-default">Back</a>
                         <a href="#" class="btn btn-warning btn-large"
