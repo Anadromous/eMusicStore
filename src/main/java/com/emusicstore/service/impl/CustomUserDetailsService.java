@@ -8,15 +8,16 @@ import org.springframework.stereotype.Component;
 
 import com.emusicstore.service.CustomerService;
 
-@Component("customUserDetailsService")
-public class CustomUserDetailService implements UserDetailsService {
-	
-	@Autowired
-	private CustomerService service;
 
+@Component("customUserDetailsService")
+public class CustomUserDetailsService implements UserDetailsService {
+
+	@Autowired
+	private CustomerService repo;
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return service.getCustomerByUsername(username);
+		return repo.getCustomerByUsername(username);
 	}
 
 }

@@ -1,10 +1,7 @@
 package com.emusicstore.dao.impl;
 
-import com.emusicstore.dao.CustomerDao;
-import com.emusicstore.model.Authorities;
-import com.emusicstore.model.Cart;
-import com.emusicstore.model.Customer;
-import com.emusicstore.model.Users;
+import java.util.List;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,7 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import com.emusicstore.dao.CustomerDao;
+import com.emusicstore.model.Authorities;
+import com.emusicstore.model.Cart;
+import com.emusicstore.model.Customer;
 
 /**
  * Created by Le on 1/25/2016.
@@ -35,15 +35,15 @@ public class CustomerDaoImpl implements CustomerDao{
         session.saveOrUpdate(customer.getBillingAddress());
         session.saveOrUpdate(customer.getShippingAddress());
 
-        Users newUser = new Users();
-        newUser.setUsername(customer.getUsername());
-        newUser.setPassword(customer.getPassword());
-        newUser.setCustomerId(customer.getCustomerId());
+        //these used to be User
+        //customer.setUsername(customer.getUsername());
+        //customer.setPassword(customer.getPassword());
+        //customer.setCustomerId(customer.getCustomerId());
 
         Authorities newAuthority = new Authorities();
         newAuthority.setUsername(customer.getUsername());
         newAuthority.setAuthority("ROLE_USER");
-        session.saveOrUpdate(newUser);
+        session.saveOrUpdate(customer);
         session.saveOrUpdate(newAuthority);
 
         Cart newCart = new Cart();
