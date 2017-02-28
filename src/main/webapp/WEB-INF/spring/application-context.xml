@@ -16,7 +16,7 @@
 	</bean>
 
 	<bean id="sessionFactory"
-		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties">
 			<props>
@@ -41,25 +41,4 @@
         <property name="maxUploadSize" value="1024000" />
     </bean>
 
-    <security:http auto-config="true">
-        <security:intercept-url pattern="/admin/**" access="hasRole('ADMIN')" />
-        <security:intercept-url pattern="/customer/**" access="hasRole('USER')" />
-        <security:form-login
-        	login-processing-url="/j_spring_security_check"
-            login-page="/login"
-            default-target-url="/product/productList/"
-            authentication-failure-url="/login?error"
-            username-parameter="username"
-            password-parameter="password" />
-        <security:logout
-            logout-success-url="/login?logout" />
-    </security:http>
-
-    <security:authentication-manager>
-        <security:authentication-provider>
-            <security:jdbc-user-service data-source-ref="dataSource"
-                                        authorities-by-username-query="SELECT username, authority From authorities WHERE username = ?"
-                                        users-by-username-query="SELECT username, password, enabled FROM users WHERE username = ?" />
-        </security:authentication-provider>
-    </security:authentication-manager>
 </beans>

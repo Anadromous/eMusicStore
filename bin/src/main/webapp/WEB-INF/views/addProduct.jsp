@@ -72,6 +72,7 @@
         <br><br>
         <input type="submit" value="submit" class="btn btn-default">
         <a href="<c:url value="/admin/productInventory" />" class="btn btn-default">Cancel</a>
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
         </form:form>
 
 

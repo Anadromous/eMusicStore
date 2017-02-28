@@ -13,7 +13,7 @@ import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
- * Created by Le on 1/24/2016.
+ * Created by pchapman on 1/24/2016.
  */
 
 @Entity

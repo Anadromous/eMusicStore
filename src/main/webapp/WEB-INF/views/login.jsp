@@ -1,6 +1,5 @@
 <%@include file="/WEB-INF/views/template/header.jsp" %>
 
-
 <div class="container-wrapper">
     <div class="login-container">
         <div id="login-box">

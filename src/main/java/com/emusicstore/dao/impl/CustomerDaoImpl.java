@@ -5,7 +5,7 @@ import com.emusicstore.model.Authorities;
 import com.emusicstore.model.Cart;
 import com.emusicstore.model.Customer;
 import com.emusicstore.model.Users;
-import org.hibernate.query.Query;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +38,6 @@ public class CustomerDaoImpl implements CustomerDao{
         Users newUser = new Users();
         newUser.setUsername(customer.getUsername());
         newUser.setPassword(customer.getPassword());
-        newUser.setEnabled(true);
         newUser.setCustomerId(customer.getCustomerId());
 
         Authorities newAuthority = new Authorities();
@@ -50,6 +49,7 @@ public class CustomerDaoImpl implements CustomerDao{
         Cart newCart = new Cart();
         newCart.setCustomer(customer);
         customer.setCart(newCart);
+        customer.setEnabled(true);
         session.saveOrUpdate(customer);
         session.saveOrUpdate(newCart);
 
@@ -64,7 +64,7 @@ public class CustomerDaoImpl implements CustomerDao{
     public List<Customer> getAllCustomers() {
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery("from Customer");
-        List<Customer> customerList = query.getResultList();
+        List<Customer> customerList = query.list();
 
         return customerList;
     }
