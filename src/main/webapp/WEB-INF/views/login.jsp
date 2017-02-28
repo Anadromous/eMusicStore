@@ -1,5 +1,4 @@
 <%@include file="/WEB-INF/views/template/header.jsp"%>
-Login with Username and Password
 <div class="container-wrapper">
 	<div class="login-container">
 		<div id="login-box">

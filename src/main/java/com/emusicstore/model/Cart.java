@@ -16,7 +16,7 @@ public class Cart implements Serializable {
     private static final long serialVersionUID = 3940548625296145582L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int cartId;
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<CartItem> cartItems;

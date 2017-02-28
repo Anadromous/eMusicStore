@@ -1,5 +1,6 @@
 package com.emusicstore.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,6 +23,7 @@ import com.emusicstore.service.CustomerService;
 @Controller
 public class RegisterController {
 
+	final static Logger log = Logger.getLogger(RegisterController.class);
     @Autowired
     private CustomerService customerService;
 
@@ -58,7 +60,7 @@ public class RegisterController {
         ShippingAddress shippingAddress = new ShippingAddress();
         customer.setBillingAddress(billingAddress);
         customer.setShippingAddress(shippingAddress);
-
+        log.debug("-----------------------Adding customer to model");
         model.addAttribute("customer", customer);
 
         return "registerCustomer";
@@ -67,8 +69,9 @@ public class RegisterController {
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String register(@ModelAttribute Customer customer) {
 		customer.setRole("ROLE_USER");
+		log.debug("---------About to addCustomer with customerService call........");
 		customerService.addCustomer(customer);
-		
+		log.debug("post customerService call.......................................");
 		Authentication auth = new UsernamePasswordAuthenticationToken(customer, customer.getPassword(), customer.getAuthorities());
 		SecurityContextHolder.getContext().setAuthentication(auth);
 		

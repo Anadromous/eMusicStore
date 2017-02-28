@@ -13,12 +13,9 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 <title>My Rafting Store</title>
-
 <!-- Angular JS -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js">
-</script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/global.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
 
@@ -27,8 +24,6 @@
 
 <!-- Main CSS -->
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-
-
 
 </head>
 <!-- NAVBAR

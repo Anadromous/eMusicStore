@@ -82,7 +82,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.3.11.Final</version>
+			<version>4.2.12.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate.javax.persistence</groupId>
@@ -92,7 +92,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.11.Final</version>
+			<version>4.2.12.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -169,6 +169,20 @@
 
 	<build>
 		<plugins>
+		<!-- run "mvn hibernate4:hbm2ddl" to generate a schema -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>hibernate4-maven-plugin</artifactId>
+                <version>4.2.7</version>
+                <configuration>
+                    <hibernatetool destdir="target/ddl">
+                        <configuration configurationfile="hibernate.cfg.xml"
+                        namingstrategy="org.hibernate.cfg.ImprovedNamingStrategy"/>
+                        <hbm2ddl export="false" drop="true" create="true" format="true"
+                                                outputfilename="example.ddl"/>
+                    </hibernatetool>
+                </configuration>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

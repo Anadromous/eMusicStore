@@ -1,14 +1,21 @@
 package com.emusicstore.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Collection;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Collection;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * Created by Le on 1/24/2016.
@@ -20,7 +27,7 @@ public class Customer implements UserDetails{
     private static final long serialVersionUID = 5140900014886997914L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int customerId;
     
     @NotEmpty (message = "The customer name must not be null.")

@@ -2,6 +2,7 @@ package com.emusicstore.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -16,7 +17,7 @@ public class ShippingAddress implements Serializable{
     private static final long serialVersionUID = 989191150380037359L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int shippingAddressId;
     private String streetName;
     private String apartmentNumber;
