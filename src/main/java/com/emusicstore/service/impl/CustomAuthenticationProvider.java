@@ -5,11 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import com.emusicstore.dao.CustomerDao;
@@ -27,6 +24,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider{
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		
 		UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
+		log.debug(">>>>>>>>>>>>>>>>>>>> CustomAuthenticationProvider user from token: "+token.getName());
 		Customer user = dao.getCustomerByUsername(token.getName());
 
 		log.debug(">>>>>>>>>>>>>>>>>>>> CustomAuthenticationProvider user: "+user.toString());

@@ -2,6 +2,9 @@ package com.emusicstore.dao.impl;
 
 import com.emusicstore.dao.ProductDao;
 import com.emusicstore.model.Product;
+import com.mysql.jdbc.log.LogFactory;
+
+import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -19,6 +22,8 @@ import java.util.List;
 @Transactional
 public class ProductDaoImpl implements ProductDao {
 
+	final static Logger log = Logger.getLogger(ProductDaoImpl.class);
+	
     @Autowired
     private SessionFactory sessionFactory;
 
@@ -31,7 +36,9 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     public List<Product> getProductList() {
+    	log.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> getProductList");
         Session session = sessionFactory.getCurrentSession();
+        log.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>> getProductList session: "+session.toString());
         Query query = session.createQuery("from Product");
         List<Product> productList = query.list();
         session.flush();

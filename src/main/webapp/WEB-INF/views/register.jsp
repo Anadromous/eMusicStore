@@ -2,8 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,20 +10,19 @@
 <title>Le's Cleaning Service Center</title>
 
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 <!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 <!-- Latest Jquery -->
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
-	type="text/javascript"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript">
+</script>
 <!-- Latest compiled and minified JavaScript -->
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+</script>
 
 </head>
 <body>
@@ -56,71 +54,57 @@
 				<input type="password" name="password" class="form-control" />
 			</div>
 
-
-        <h3>Billing Address</h3>
-
-        <div class="form-group">
-            <label for="make">Street Name</label>
-            <input name="billingAddress.streetName" class="form-Control"/>
-        </div>
-
-        <div class="form-group">
-            <label for="make">Apartment Number</label>
-            <input name="billingAddress.apartmentNumber" class="form-Control"/>
-        </div>
-
-        <div class="form-group">
-            <label for="make">City</label>
-            <input name="billingAddress.city" class="form-Control"/>
-        </div>
-
-        <div class="form-group">
-            <label for="make">State</label>
-            <input name="billingAddress.state" class="form-Control"/>
-        </div>
-
-        <div class="form-group">
-            <label for="make">Country</label>
-            <input name="billingAddress.country" class="form-Control"/>
-        </div>
-
-        <div class="form-group">
-            <label for="make">Zipcode</label>
-            <input name="billingAddress.zipCode" class="form-Control"/>
-        </div>
-
-        <h3>Shipping Address</h3>
-
+		<h3>Shipping Address</h3>
         <div class="form-group">
             <label for="make">Street Name</label>
             <input name="shippingAddress.streetName" class="form-Control"/>
         </div>
-
         <div class="form-group">
             <label for="make">Apartment Number</label>
             <input name="shippingAddress.apartmentNumber" class="form-Control"/>
         </div>
-
         <div class="form-group">
             <label for="make">City</label>
             <input name="shippingAddress.city" class="form-Control"/>
         </div>
-
         <div class="form-group">
             <label for="make">State</label>
             <input name="shippingAddress.state" class="form-Control"/>
         </div>
-
         <div class="form-group">
             <label for="make">Country</label>
             <input name="shippingAddress.country" class="form-Control"/>
         </div>
-
         <div class="form-group">
             <label for="make">Zipcode</label>
             <input name="shippingAddress.zipCode" class="form-Control"/>
         </div>
 
+        <h3>Billing Address</h3>
+        <div class="form-group">
+            <label for="make">Street Name</label>
+            <input name="billingAddress.streetName" class="form-Control"/>
+        </div>
+        <div class="form-group">
+            <label for="make">Apartment Number</label>
+            <input name="billingAddress.apartmentNumber" class="form-Control"/>
+        </div>
+        <div class="form-group">
+            <label for="make">City</label>
+            <input name="billingAddress.city" class="form-Control"/>
+        </div>
+        <div class="form-group">
+            <label for="make">State</label>
+            <input name="billingAddress.state" class="form-Control"/>
+        </div>
+        <div class="form-group">
+            <label for="make">Country</label>
+            <input name="billingAddress.country" class="form-Control"/>
+        </div>
+        <div class="form-group">
+            <label for="make">Zipcode</label>
+            <input name="billingAddress.zipCode" class="form-Control"/>
+        </div>
         <br><br>
         <sec:csrfInput/>
 

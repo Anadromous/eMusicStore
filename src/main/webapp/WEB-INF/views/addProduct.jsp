@@ -1,7 +1,6 @@
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="/WEB-INF/views/template/header.jsp" %>
-
-
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="sec"	uri="http://www.springframework.org/security/tags"%>
 <div class="container-wrapper">
     <div class="container">
         <div class="page-header">
@@ -20,9 +19,9 @@
         <div class="form-group">
             <label for="category">Category</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                             value="instrument" />Instrument</label>
+                                                             value="instrument" />WaterCraft</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
-                                                             value="record" />Record</label>
+                                                             value="record" />Equipment</label>
             <label class="checkbox-inline"><form:radiobutton path="productCategory" id="category"
                                                              value="accessory" />Accessory</label>
         </div>
@@ -72,7 +71,7 @@
         <br><br>
         <input type="submit" value="submit" class="btn btn-default">
         <a href="<c:url value="/admin/productInventory" />" class="btn btn-default">Cancel</a>
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+        <csrf disabled="true"/>
         </form:form>
 
 

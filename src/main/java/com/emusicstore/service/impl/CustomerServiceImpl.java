@@ -7,11 +7,12 @@ import com.emusicstore.service.CustomerService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
- * Created by Le on 1/25/2016.
+ * Created by pchapman on 1/25/2017.
  */
 
 @Service
