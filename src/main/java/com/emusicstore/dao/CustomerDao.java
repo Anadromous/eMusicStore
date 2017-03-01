@@ -4,10 +4,12 @@ import com.emusicstore.model.Customer;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  * Created by pchapman on 1/25/2017.
  */
-public interface CustomerDao {
+public interface CustomerDao{
 
     void addCustomer (Customer customer);
 
@@ -16,5 +18,5 @@ public interface CustomerDao {
     List<Customer> getAllCustomers();
 
     Customer getCustomerByUsername (String username);
-
+    
 }

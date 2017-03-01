@@ -21,9 +21,11 @@ import com.emusicstore.service.CustomerService;
  */
 
 @Controller
+@RequestMapping("/")
 public class RegisterController {
 
 	final static Logger log = Logger.getLogger(RegisterController.class);
+	
     @Autowired
     private CustomerService customerService;
 
@@ -54,22 +56,28 @@ public class RegisterController {
     //////new
     
 	@RequestMapping(value="/register", method=RequestMethod.GET)
-	public String registerCustomer(Model model) {
-		Customer customer = new Customer();
+	public String goRegister() {
+		/*Customer customer = new Customer();
         BillingAddress billingAddress = new BillingAddress();
         ShippingAddress shippingAddress = new ShippingAddress();
         customer.setBillingAddress(billingAddress);
         customer.setShippingAddress(shippingAddress);
+        
         log.debug("-----------------------Adding customer to model");
-        model.addAttribute("customer", customer);
+        customerService.addCustomer(customer);*/
 
-        return "registerCustomer";
+        return "register";
 	}
 	
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String register(@ModelAttribute Customer customer) {
-		customer.setRole("ROLE_USER");
+		BillingAddress billingAddress = new BillingAddress();
+        ShippingAddress shippingAddress = new ShippingAddress();
+        customer.setBillingAddress(billingAddress);
+        customer.setShippingAddress(shippingAddress);
+		customer.setRole("ROLE_ADMIN");
 		log.debug("---------About to addCustomer with customerService call........");
+		log.debug("Customer: "+customer.toString());
 		customerService.addCustomer(customer);
 		log.debug("post customerService call.......................................");
 		Authentication auth = new UsernamePasswordAuthenticationToken(customer, customer.getPassword(), customer.getAuthorities());

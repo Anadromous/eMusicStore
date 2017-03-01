@@ -30,22 +30,26 @@ public class Customer implements UserDetails{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int customerId;
     
-    @NotEmpty (message = "The customer name must not be null.")
-    @Column(name="customer_name")
-    private String customerName;
+    //@NotEmpty (message = "First name must not be null.")
+    @Column(name="first_name")
+    private String firstName;
     
-    @NotEmpty (message = "The customer email must not be null.")
+   //@NotEmpty (message = "Last name must not be null.")
+    @Column(name="last_name")
+    private String lastName;
+    
+    //@NotEmpty (message = "The customer email must not be null.")
     @Column(name="customer_email")
     private String customerEmail;
     
     @Column(name="customer_phone")
     private String customerPhone;
     
-    @NotEmpty (message = "The customer username must not be null.")
+    //@NotEmpty (message = "The customer username must not be null.")
     @Column(name="username")
     private String username;
     
-    @NotEmpty (message = "The customer password must not be null.")
+    //@NotEmpty (message = "The customer password must not be null.")
     @Column(name="password")
     private String password;
     
@@ -76,12 +80,20 @@ public class Customer implements UserDetails{
         this.customerId = customerId;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getCustomerEmail() {
@@ -182,4 +194,17 @@ public class Customer implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Customer [firstName=" + firstName + ", lastName=" + lastName + ", customerEmail=" + customerEmail
+				+ ", customerPhone=" + customerPhone + ", username=" + username + ", password=" + password + ", role="
+				+ role + ", enabled=" + enabled + ", billingAddress=" + billingAddress + ", shippingAddress="
+				+ shippingAddress + "]";
+	}
+	
+	
 }
