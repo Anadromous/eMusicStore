@@ -15,6 +15,10 @@
 <title>My Rafting Store</title>
 <!-- Angular JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<!-- Latest Jquery -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
+	type="text/javascript"></script>
 <script src="${pageContext.request.contextPath}/resources/js/global.js"></script>
 <!-- Bootstrap core CSS -->
 <link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet">
